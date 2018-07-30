@@ -121,7 +121,6 @@ main =
     printf "root alignment: %.2f\n" $ a
     printf "root alignment density: %.2f\n" $ ad
 
-{-
     performGC
 
     let model = "MUSH_model5d"
@@ -142,7 +141,6 @@ main =
     let (_,(_,(a,ad))) = Set.findMin $ treesRoots $ systemsDecompFudsHistoryRepasTreeAlignmentContentShuffleSummation_u mult seed uu' df hh
     printf "root alignment: %.2f\n" $ a
     printf "root alignment density: %.2f\n" $ ad
--}
 
     performGC
 

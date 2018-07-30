@@ -44,8 +44,13 @@ ghc -i../Alignment -i../AlignmentRepa ../AlignmentRepa/AlignmentForeign.o MUSH_e
 ./MUSH_engine4.exe +RTS -s >MUSH_engine4.log 2>&1 &
 
 tail -f MUSH_engine4.log
+
+ghc -i../Alignment -i../AlignmentRepa ../AlignmentRepa/AlignmentForeign.o MUSH_engine5.hs -o MUSH_engine5.exe -rtsopts -O2
+
+./MUSH_engine5.exe +RTS -s >MUSH_engine5.log 2>&1 &
+
+tail -f MUSH_engine4.log
 ```
-Note that the tests require around 2.2GB memory.
 
 To experiment with the dataset in the interpreter,
 ```

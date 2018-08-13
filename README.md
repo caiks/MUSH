@@ -49,7 +49,7 @@ ghc -i../Alignment -i../AlignmentRepa ../AlignmentRepa/AlignmentForeign.o MUSH_e
 
 ./MUSH_engine5.exe +RTS -s >MUSH_engine5.log 2>&1 &
 
-tail -f MUSH_engine4.log
+tail -f MUSH_engine5.log
 ```
 
 To experiment with the dataset in the interpreter,

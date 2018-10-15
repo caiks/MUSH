@@ -194,7 +194,8 @@ hrsize = historyRepasSize
 hralgn = systemsDecompFudsHistoryRepasAlignmentContentShuffleSummation_u
 hralgntree = systemsDecompFudsHistoryRepasTreeAlignmentContentShuffleSummation_u
 
-
+ent = histogramsEntropy 
+lent aa ww vvl = ent (aa `red` (ww `Set.union` vvl)) - ent (aa `red` ww)
 algn = histogramsAlignment
 algnden aa = let v = fromIntegral (vol (sys aa) (vars aa)); n = fromIntegral (dim aa) in algn aa  / (v ** (1/n))
 

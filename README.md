@@ -1,10 +1,10 @@
 # MUSH
 
-This repository contains tests of the [AlignmentRepa repository](https://github.com/caiks/AlignmentRepa) using data from the [UCI Machine Learning Repository Mushroom Data Set](https://archive.ics.uci.edu/ml/datasets/mushroom). The AlignmentRepa repository is a fast Haskell implementation of some of the *practicable inducers* described in the paper *The Theory and Practice of Induction by Alignment* at http://greenlake.co.uk/. 
+This repository contains tests of the [AlignmentRepa repository](https://github.com/caiks/AlignmentRepa) using data from the [UCI Machine Learning Repository Mushroom Data Set](https://archive.ics.uci.edu/ml/datasets/mushroom). The AlignmentRepa repository is a fast Haskell implementation of some of the *practicable inducers* described in the paper *The Theory and Practice of Induction by Alignment* at https://greenlake.co.uk/. 
 
 ## Installation
 
-The `MUSH` exectuables require the `AlignmentRepa` module which is in the [AlignmentRepa repository](https://github.com/caiks/AlignmentRepa). See the AlignmentRepa repository for installation instructions of the Haskell compiler and libraries.
+The `MUSH` executables require the `AlignmentRepa` module which is in the [AlignmentRepa repository](https://github.com/caiks/AlignmentRepa). See the AlignmentRepa repository for installation instructions of the Haskell compiler and libraries.
 
 Then download the zip files or use git to get the MUSH repository and the underlying Alignment and AlignmentRepa repositories -
 ```
@@ -16,7 +16,7 @@ git clone https://github.com/caiks/MUSH.git
 
 ## Usage
 
-`MUSH_engine16` running on a Pentium CPU G2030 @ 3.00GHz uses 1784 MB total memory and takes over 1166 seconds,
+`MUSH_engine16` runs on a Pentium CPU G2030 @ 3.00GHz using 1784 MB total memory and takes 1166 seconds,
 
 ```
 cd ../Alignment
@@ -85,7 +85,7 @@ let hh = aahr uu aa
 
 let (wmax,lmax,xmax,omax,bmax,mmax,umax,pmax,fmax,mult,seed) = ((9*9*10), 8, (9*9*10), 10, (10*3), 3, (9*9*10), 1, 3, 3, 5)
 
-Just (uu1,df1) <- decomperIO uu vv hh wmax lmax xmax omax bmax mmax umax pmax fmax mult seed
+Just (uu1,df1) <- decomperIO uu vvk hh wmax lmax xmax omax bmax mmax umax pmax fmax mult seed
 
 ByteString.writeFile ("df1.json") $ decompFudsPersistentsEncode $ decompFudsPersistent df1
 

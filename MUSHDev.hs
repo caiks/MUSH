@@ -211,7 +211,7 @@ rpln ll = mapM_ (print . rp) ll
 dp2 x = fromIntegral (truncate (100.0 * x)) / 100.0
 
 decomperIO uu vv hh wmax lmax xmax omax bmax mmax umax pmax fmax mult seed =
-      parametersSystemsHistoryRepasDecomperMaximumRollExcludedSelfHighestFmaxIORepa 
+      parametersSystemsHistoryRepasDecomperMaxRollByMExcludedSelfHighestFmaxIORepa 
         wmax lmax xmax omax bmax mmax umax pmax fmax mult seed uu vv hh
 
 aamax aa = if size aa > 0 then (snd $ last $ sort [(c,ss) | (ss,c) <- aall aa]) else stateEmpty

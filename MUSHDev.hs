@@ -156,6 +156,7 @@ fapply aa ff = fudsHistogramsApply ff aa
 fmul aa ff = fudsHistogramsMultiply ff aa
 ffaa  = ttaa . fftt
 layer ff = fudsSetVarsLayer ff (fder ff)
+fdep = fudsVarsDepends
 fsys = fudsSystemImplied
 fmp ff ll = qqff (Set.map (\tt -> fromJust (transformsMapVarMapValsFrame tt (umap (fsys ff) ll))) (ffqq ff))
 fmpi ff = fmp ff [VarInt i | i <- [1..]]

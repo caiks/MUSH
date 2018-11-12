@@ -16,7 +16,7 @@ git clone https://github.com/caiks/MUSH.git
 
 ## Usage
 
-`MUSH_engine16` runs on a Pentium CPU G2030 @ 3.00GHz using 1784 MB total memory and takes 1166 seconds,
+`MUSH_engine16` runs on a Ubuntu 16.04 Pentium CPU G2030 @ 3.00GHz using 1784 MB total memory and takes 1166 seconds,
 
 ```
 cd ../Alignment
@@ -73,7 +73,7 @@ let aa = llaa $ map (\ll -> (llss ll,1)) $ map (\ss -> (map (\(u,(v,uu)) -> (Var
 let uu = sys aa
 let vv = uvars uu
 let vvl = Set.singleton (VarStr "edible")
-let vvk = vv `Set.difference` vvl
+let vvk = vv `minus` vvl
 let hh = aahr uu aa
 
 let (wmax,lmax,xmax,omax,bmax,mmax,umax,pmax,fmax,mult,seed) = ((9*9*10), 8, (9*9*10), 10, (10*3), 3, (9*9*10), 1, 3, 3, 5)

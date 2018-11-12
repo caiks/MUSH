@@ -182,15 +182,18 @@ arred aa vv = setVarsHistogramRepasReduce vv aa
 
 hhhr uu hh = fromJust $ systemsHistoriesHistoryRepa uu hh
 hrhh uu hr = fromJust $ systemsHistoryRepasHistory_u uu hr
-aahr uu aa = hhhr uu $ aahh aa
+aahr aa = hhhr (sys aa) $ aahh aa 
 hrhx = historyRepasRed
+aahx = hrhx . aahr 
 hrred hh vv = setVarsHistoryRepasReduce 1 vv hh
 hrev = eventsHistoryRepasHistoryRepaSelection
+hrvars = historyRepasSetVariable
+hrsize = historyRepasSize
+hrfmul uu ff hh = fromJust $ systemsFudsHistoryRepasMultiply uu ff hh
+hrhrred hh vv = setVarsHistoryRepasHistoryRepaReduced vv hh
 hrmult = systemsDecompFudsHistoryRepasMultiply
 hrquery = systemsDecompFudsHistoryRepasHistoriesQuery
 hrtest = systemsDecompFudsHistoryRepasHistoryRepasSetVariablesTest
-hrvars = historyRepasSetVariable
-hrsize = historyRepasSize
 hralgn = systemsDecompFudsHistoryRepasAlignmentContentShuffleSummation_u
 hralgntree = systemsDecompFudsHistoryRepasTreeAlignmentContentShuffleSummation_u
 

@@ -1,7 +1,7 @@
 module MUSHDev
 where
 
-import Data.List
+import Data.List hiding (union)
 import qualified Data.ByteString.Lazy as ByteString
 import qualified Data.ByteString.Char8 as ByteStringChar8
 import qualified Data.Set as Set
@@ -43,6 +43,8 @@ sunion = pairStatesUnionLeft
 ssll = statesList
 llss = listsState
 
+ssplit = setVarsSetStatesSplit 
+
 cart uu vv = fromJust $ systemsVarsCartesian uu vv
 sysreg d n = fromJust $ systemRegular d n
 syscart d n = fromJust $ let uu = sysreg d n in systemsVarsCartesian uu (systemsVars uu)
@@ -70,7 +72,7 @@ vars = histogramsVars
 cdvars ll = Set.fromList $ map VarInt ll
 states = histogramsStates
 dim = histogramsDimension
-card = histogramsCardinality
+acard = histogramsCardinality
 recip = histogramsReciprocal
 red aa vv = setVarsHistogramsReduce vv aa
 cdred aa ll = red aa $ Set.fromList $ map VarInt ll
@@ -182,9 +184,8 @@ arred aa vv = setVarsHistogramRepasReduce vv aa
 
 hhhr uu hh = fromJust $ systemsHistoriesHistoryRepa uu hh
 hrhh uu hr = fromJust $ systemsHistoryRepasHistory_u uu hr
-aahr aa = hhhr (sys aa) $ aahh aa 
+aahr uu aa = hhhr uu $ aahh aa 
 hrhx = historyRepasRed
-aahx = hrhx . aahr 
 hrred hh vv = setVarsHistoryRepasReduce 1 vv hh
 hrev = eventsHistoryRepasHistoryRepaSelection
 hrvars = historyRepasSetVariable
@@ -212,6 +213,29 @@ rj Nothing = "Nothing"
 rpln ll = mapM_ (print . rp) ll
 
 dp2 x = fromIntegral (truncate (100.0 * x)) / 100.0
+
+
+qqll :: Set.Set a -> [a]
+qqll = Set.toList
+
+llqq :: (Ord a) => [a] -> Set.Set a
+llqq = Set.fromList
+
+sgl :: a -> Set.Set a
+sgl = Set.singleton
+
+card :: Set.Set a -> Int
+card = Set.size
+
+union :: Ord a => Set.Set a -> Set.Set a -> Set.Set a
+union = Set.union
+
+minus :: Ord a => Set.Set a -> Set.Set a -> Set.Set a
+minus = Set.difference
+
+inter :: Ord a => Set.Set a -> Set.Set a -> Set.Set a
+inter = Set.intersection
+
 
 decomperIO uu vv hh wmax lmax xmax omax bmax mmax umax pmax fmax mult seed =
       parametersSystemsHistoryRepasDecomperMaxRollByMExcludedSelfHighestFmaxIORepa 

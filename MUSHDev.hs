@@ -237,6 +237,11 @@ minus = Set.difference
 inter :: Ord a => Set.Set a -> Set.Set a -> Set.Set a
 inter = Set.intersection
 
+least :: Set.Set a -> a
+least = Set.findMin
+
+most :: Set.Set a -> a
+most = Set.findMax
 
 decomperIO uu vv hh wmax lmax xmax omax bmax mmax umax pmax fmax mult seed =
       parametersSystemsHistoryRepasDecomperMaxRollByMExcludedSelfHighestFmaxIORepa 

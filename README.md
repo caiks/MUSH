@@ -2,6 +2,10 @@
 
 This repository contains tests of the [AlignmentRepa repository](https://github.com/caiks/AlignmentRepa) using data from the [UCI Machine Learning Repository Mushroom Data Set](https://archive.ics.uci.edu/ml/datasets/mushroom). The AlignmentRepa repository is a fast Haskell implementation of some of the *practicable inducers* described in the paper *The Theory and Practice of Induction by Alignment* at https://greenlake.co.uk/. 
 
+## Documentation
+
+There is an analysis of this dataset [here](https://greenlake.co.uk/pages/dataset_MUSH), with sections (a) [predicting edibility without modelling](https://greenlake.co.uk/pages/dataset_MUSH#Predicting_edibility_without_modelling), (b) [predicting odor without modelling](https://greenlake.co.uk/pages/dataset_MUSH#Predicting_odor_without_modelling), (c) [manual modelling of edibility](https://greenlake.co.uk/pages/dataset_MUSH#Manual_modelling_of_edibility) and (d) [induced modelling of edibility](https://greenlake.co.uk/pages/dataset_MUSH#Induced_modelling_of_edibility). 
+
 ## Installation
 
 The `MUSH` executables require the `AlignmentRepa` module which is in the [AlignmentRepa repository](https://github.com/caiks/AlignmentRepa). See the AlignmentRepa repository for installation instructions of the Haskell compiler and libraries.
@@ -15,6 +19,8 @@ git clone https://github.com/caiks/MUSH.git
 ```
 
 ## Usage
+
+The *practicable model induction* is described [here](https://greenlake.co.uk/pages/dataset_MUSH_model16).
 
 `MUSH_engine16` runs on a Ubuntu 16.04 Pentium CPU G2030 @ 3.00GHz using 1784 MB total memory and takes 1166 seconds,
 
@@ -85,4 +91,5 @@ ByteString.writeFile ("df1.json") $ decompFudsPersistentsEncode $ decompFudsPers
 systemsDecompFudsHistoryRepasAlignmentContentShuffleSummation_u mult seed uu1 df1 hh
 
 ```
+
 

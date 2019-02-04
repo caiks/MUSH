@@ -88,7 +88,8 @@ Just (uu1,df1) <- decomperIO uu vvk hh wmax lmax xmax omax bmax mmax umax pmax f
 
 ByteString.writeFile ("df1.json") $ decompFudsPersistentsEncode $ decompFudsPersistent df1
 
-systemsDecompFudsHistoryRepasAlignmentContentShuffleSummation_u mult seed uu1 df1 hh
+summation mult seed uu1 df1 hh
+(54409.95661501111,24589.66463393197)
 
 ```
 

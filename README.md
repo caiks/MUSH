@@ -73,10 +73,8 @@ ghci -i../Alignment -i../AlignmentRepa ../AlignmentRepa/AlignmentForeign.o
 ```hs
 :l MUSHDev
 
-mush <- ByteStringChar8.readFile "../MUSH/agaricus-lepiota.data"
+(uu,aa) <- mushIO
 
-let aa = llaa $ map (\ll -> (llss ll,1)) $ map (\ss -> (map (\(u,(v,uu)) -> (VarStr v,ValStr (fromJust (lookup u uu)))) (zip ss names))) $ map (\l -> filter (/=',') l) $ lines $ ByteStringChar8.unpack $ mush
-let uu = sys aa
 let vv = uvars uu
 let vvl = Set.singleton (VarStr "edible")
 let vvk = vv `minus` vvl

@@ -1,0 +1,103 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.36.0.
+--
+-- see: https://github.com/sol/hpack
+
+name:           MUSH
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/caiks/MUSH#readme>
+homepage:       https://github.com/caiks/MUSH#readme
+bug-reports:    https://github.com/caiks/MUSH/issues
+author:         Cliff McCartney
+maintainer:     caiks@greenlake.co.uk
+copyright:      Cliff McCartney
+license:        MIT
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+
+source-repository head
+  type: git
+  location: https://github.com/caiks/MUSH
+
+library
+  exposed-modules:
+      MUSH
+  other-modules:
+      Paths_MUSH
+  hs-source-dirs:
+      src
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
+  build-depends:
+      Alignment
+    , AlignmentRepa
+    , aeson
+    , aeson-pretty
+    , base >=4.7 && <5
+    , bytestring
+    , cassava
+    , containers
+    , old-locale
+    , primitive
+    , random
+    , repa
+    , repa-io
+    , time
+    , vector
+    , vector-algorithms
+    , zlib
+  default-language: Haskell2010
+
+executable MUSH_engine14.exe
+  main-is: MUSH_engine14.hs
+  hs-source-dirs:
+      apps
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N -main-is MUSH_engine14
+  build-depends:
+      Alignment
+    , AlignmentRepa
+    , MUSH
+    , aeson
+    , aeson-pretty
+    , base >=4.7 && <5
+    , bytestring
+    , cassava
+    , containers
+    , old-locale
+    , primitive
+    , random
+    , repa
+    , repa-io
+    , time
+    , vector
+    , vector-algorithms
+    , zlib
+  default-language: Haskell2010
+
+executable MUSH_engine16.exe
+  main-is: MUSH_engine16.hs
+  hs-source-dirs:
+      apps
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N -main-is MUSH_engine16
+  build-depends:
+      Alignment
+    , AlignmentRepa
+    , MUSH
+    , aeson
+    , aeson-pretty
+    , base >=4.7 && <5
+    , bytestring
+    , cassava
+    , containers
+    , old-locale
+    , primitive
+    , random
+    , repa
+    , repa-io
+    , time
+    , vector
+    , vector-algorithms
+    , zlib
+  default-language: Haskell2010

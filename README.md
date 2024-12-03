@@ -8,9 +8,9 @@ There is an analysis of this dataset [here](https://greenlake.co.uk/pages/datase
 
 ## Installation
 
-The `MUSH` executables require the `AlignmentRepa` module which is in the [AlignmentRepa repository](https://github.com/caiks/AlignmentRepa). See the AlignmentRepa repository for installation instructions of the Haskell compiler and libraries.
+The `MUSH` executables require the `AlignmentRepa` module which is in the [AlignmentRepa repository](https://github.com/caiks/AlignmentRepa). The `AlignmentRepa` module requires the [Haskell platform](https://www.haskell.org/downloads#platform) to be installed. The project is managed using [stack](https://docs.haskellstack.org/en/stable/).
 
-Then download the zip files or use git to get the MUSH repository and the underlying Alignment and AlignmentRepa repositories -
+Download the zip files or use git to get the MUSH repository and the underlying Alignment and AlignmentRepa repositories -
 ```
 cd
 git clone https://github.com/caiks/Alignment.git
@@ -18,6 +18,12 @@ git clone https://github.com/caiks/AlignmentRepa.git
 git clone https://github.com/caiks/MUSH.git
 ```
 
+Then build with the following -
+```
+cd ~/MUSH
+stack build --ghc-options -w
+
+```
 ## Usage
 
 The *practicable model induction* is described [here](https://greenlake.co.uk/pages/dataset_MUSH_model16).
@@ -25,51 +31,19 @@ The *practicable model induction* is described [here](https://greenlake.co.uk/pa
 `MUSH_engine16` runs on a Ubuntu 16.04 Pentium CPU G2030 @ 3.00GHz using 1784 MB total memory and takes 1166 seconds,
 
 ```
-cd ../Alignment
-rm *.o *.hi
-
-cd ../AlignmentRepa
-rm *.o *.hi
-
-gcc -fPIC -c AlignmentForeign.c -o AlignmentForeign.o -O3
-
-cd ../MUSH
-rm *.o *.hi
-
-ghc -i../Alignment -i../AlignmentRepa ../AlignmentRepa/AlignmentForeign.o MUSH_engine16.hs -o MUSH_engine16.exe -rtsopts -O2
-
-./MUSH_engine16.exe +RTS -s >MUSH_engine16.log 2>&1 &
+stack exec MUSH_engine16.exe +RTS -s >MUSH_engine16.log 2>&1 &
 
 tail -f MUSH_engine16.log
 
 ```
 
-To experiment with the dataset in the interpreter,
+To experiment with the dataset in the interpreter use `stack ghci` or `stack repl` for a run-eval-print loop (REPL) environment, 
 ```
-cd ../Alignment
-rm *.o *.hi
+cd ~/MUSH
+stack ghci --ghci-options -w
 
-cd ../AlignmentRepa
-rm *.o *.hi
-
-gcc -fPIC -c AlignmentForeign.c -o AlignmentForeign.o -O3
-
-cd ../MUSH
-
-ghci -i../Alignment -i../AlignmentRepa ../AlignmentRepa/AlignmentForeign.o
 ```
-
-```hs
-:set -fobject-code
-:l MUSHDev
-```
-Then exit the interpreter,
-```
-rm MUSHDev.o
-
-ghci -i../Alignment -i../AlignmentRepa ../AlignmentRepa/AlignmentForeign.o
-```
-
+Press return when prompted to choose the main executable. Load `MUSHDev` to import the modules and define various useful abbreviated functions,
 ```hs
 :l MUSHDev
 
@@ -88,7 +62,27 @@ ByteString.writeFile ("df1.json") $ decompFudsPersistentsEncode $ decompFudsPers
 
 summation mult seed uu1 df1 hh
 (54409.95661501111,24589.66463393197)
+```
+Note that if you wish to use compiled code rather than interpreted you may specify the following before loading `MUSHDev` -
+```
+:set -fobject-code
 
 ```
+Note that some modules may become [unresolved](https://downloads.haskell.org/~ghc/7.10.3-rc1/users_guide/ghci-obj.html), for example,
+```hs
+rp $ Set.fromList [1,2,3]
 
+<interactive>:9:1: Not in scope: ‘Set.fromList’
+```
+In this case, re-import the modules explicitly as defined in `MUSHDev`, for example,
+```hs
+import qualified Data.Set as Set
+import qualified Data.Map as Map
+import Alignment
 
+rp $ Set.fromList [1,2,3]
+"{1,2,3}"
+
+rp $ fudEmpty
+"{}"
+```

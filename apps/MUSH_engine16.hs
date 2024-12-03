@@ -1,5 +1,7 @@
 {-# LANGUAGE OverloadedStrings, BangPatterns, ScopedTypeVariables #-}
 
+module MUSH_engine16 ( main) where
+
 import Control.Monad
 import Control.Monad.ST
 import Data.STRef
@@ -61,8 +63,8 @@ main =
     printf "size: %d\n" $ historyRepasSize hh
     hFlush stdout
 
-    let model = "MUSH_model14"
-    let (wmax,lmax,xmax,omax,bmax,mmax,umax,pmax,fmax,mult,seed) = (1341, 3, 1341, 40, (40*4), 4, 1341, 1, 20, 7, 5)
+    let model = "MUSH_model16"
+    let (wmax,lmax,xmax,omax,bmax,mmax,umax,pmax,fmax,mult,seed) = ((9*9*10), 8, (9*9*10), 40, (40*4), 4, (9*9*10), 1, 20, 7, 5)
 
     printf ">>> %s\n" $ model
     Just (uu',df) <- decomperIO uu vvk hh vvl wmax lmax xmax omax bmax mmax umax pmax fmax mult seed
@@ -100,4 +102,3 @@ main =
     uvars = systemsVars
     sys = histogramsSystemImplied 
     rpln ll = mapM_ (print . represent) ll
-

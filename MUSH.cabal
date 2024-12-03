@@ -24,7 +24,7 @@ source-repository head
 
 library
   exposed-modules:
-      MUSH
+      MUSHDev
   other-modules:
       Paths_MUSH
   hs-source-dirs:

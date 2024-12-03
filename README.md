@@ -16,8 +16,8 @@ cd
 git clone https://github.com/caiks/Alignment.git
 git clone https://github.com/caiks/AlignmentRepa.git
 git clone https://github.com/caiks/MUSH.git
-```
 
+```
 Then build with the following -
 ```
 cd ~/MUSH
@@ -79,6 +79,7 @@ In this case, re-import the modules explicitly as defined in `MUSHDev`, for exam
 import qualified Data.Set as Set
 import qualified Data.Map as Map
 import Alignment
+import AlignmentDevRepa hiding (aahr)
 
 rp $ Set.fromList [1,2,3]
 "{1,2,3}"

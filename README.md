@@ -31,6 +31,7 @@ The *practicable model induction* is described [here](https://greenlake.co.uk/pa
 `MUSH_engine16` runs on a Ubuntu 16.04 Pentium CPU G2030 @ 3.00GHz using 1784 MB total memory and takes 1166 seconds,
 
 ```
+cd ~/MUSH
 stack exec MUSH_engine16.exe +RTS -s >MUSH_engine16.log 2>&1 &
 
 tail -f MUSH_engine16.log
@@ -63,7 +64,7 @@ ByteString.writeFile ("df1.json") $ decompFudsPersistentsEncode $ decompFudsPers
 summation mult seed uu1 df1 hh
 (54409.95661501111,24589.66463393197)
 ```
-Note that if you wish to use compiled code rather than interpreted you may specify the following before loading `MUSHDev` -
+If you wish to use compiled code rather than interpreted you may specify the following before loading `MUSHDev` -
 ```
 :set -fobject-code
 
@@ -79,6 +80,7 @@ In this case, re-import the modules explicitly as defined in `MUSHDev`, for exam
 import qualified Data.Set as Set
 import qualified Data.Map as Map
 import Alignment
+import AlignmentRepa
 import AlignmentDevRepa hiding (aahr)
 
 rp $ Set.fromList [1,2,3]
